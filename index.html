@@ -1,0 +1,885 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#06131d">
+<title>برای سحر، از ته قلبم ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --night:#040a12;
+  --blue:#0a2635;
+  --petrol:#123f50;
+  --gold:#e8cc8c;
+  --white:#fff8ed;
+  --muted:#b7c4ce;
+}
+
+* { box-sizing:border-box; }
+
+html {
+  scroll-behavior:smooth;
+  background:var(--night);
+}
+
+body {
+  margin:0;
+  color:var(--white);
+  background:var(--night);
+  font-family:'Vazirmatn',Tahoma,sans-serif;
+  overflow-x:hidden;
+}
+
+button { font:inherit; }
+
+button:focus-visible {
+  outline:2px solid var(--gold);
+  outline-offset:5px;
+}
+
+#stars {
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:2;
+}
+
+.grain {
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:3;
+  opacity:.12;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.24'/%3E%3C/svg%3E");
+}
+
+.scene {
+  position:relative;
+  min-height:100svh;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:85px 22px;
+  isolation:isolate;
+}
+
+.scene::before {
+  content:"";
+  position:absolute;
+  inset:-20%;
+  z-index:-2;
+  background:
+    radial-gradient(ellipse at 50% 40%, #174b5b 0%, transparent 37%),
+    radial-gradient(ellipse at 20% 80%, #102b3d 0%, transparent 45%),
+    linear-gradient(160deg,#03070d,#071924 55%,#02050a);
+  animation:world 18s ease-in-out infinite alternate;
+}
+
+@keyframes world {
+  to { transform:scale(1.12) rotate(2deg); }
+}
+
+#intro {
+  min-height:100svh;
+  flex-direction:column;
+}
+
+.eyebrow {
+  color:var(--gold);
+  letter-spacing:3px;
+  font-size:12px;
+  font-weight:500;
+}
+
+h1,h2,p { position:relative; }
+
+.hero-title {
+  font-size:clamp(42px,10vw,100px);
+  line-height:1.45;
+  font-weight:400;
+  margin:15px 0;
+  text-shadow:0 0 45px #d9b86b30;
+}
+
+.gold {
+  color:var(--gold);
+  text-shadow:0 0 35px #e8cc8c35;
+}
+
+.subtitle {
+  max-width:570px;
+  line-height:2.2;
+  font-weight:300;
+  color:var(--muted);
+  font-size:clamp(14px,3.4vw,18px);
+}
+
+.btn {
+  border:1px solid #e8cc8c80;
+  border-radius:999px;
+  padding:14px 26px;
+  background:#e8cc8c12;
+  color:var(--white);
+  cursor:pointer;
+  transition:transform .35s,background .35s,box-shadow .35s;
+  backdrop-filter:blur(12px);
+}
+
+.btn:hover {
+  transform:translateY(-3px);
+  background:#e8cc8c24;
+  box-shadow:0 0 30px #e8cc8c20;
+}
+
+.btn.primary {
+  background:linear-gradient(120deg,#c5a566,#f3dfaa);
+  color:#15202a;
+  border-color:transparent;
+  font-weight:700;
+}
+
+.actions {
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:30px;
+}
+
+.orb {
+  position:relative;
+  width:min(60vw,270px);
+  aspect-ratio:1;
+  margin:22px auto 30px;
+  display:grid;
+  place-items:center;
+  perspective:700px;
+}
+
+.orb::before,.orb::after {
+  content:"";
+  position:absolute;
+  inset:5%;
+  border:1px solid #e8cc8c45;
+  border-radius:50%;
+  box-shadow:0 0 50px #2c8ba02a,inset 0 0 50px #2c8ba015;
+  animation:orbit 14s linear infinite;
+}
+
+.orb::after {
+  inset:18% -5%;
+  transform:rotateX(65deg);
+  border-color:#6fc9d65a;
+  animation-duration:10s;
+}
+
+@keyframes orbit {
+  to { rotate:360deg; }
+}
+
+.heart {
+  font-size:clamp(75px,18vw,130px);
+  filter:drop-shadow(0 0 22px #d94b7180);
+  animation:heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%,100% { transform:scale(1); }
+  14% { transform:scale(1.12); }
+  28% { transform:scale(1); }
+  42% { transform:scale(1.08); }
+}
+
+.scroll-hint {
+  position:absolute;
+  bottom:22px;
+  color:#a7b8c4;
+  font-size:12px;
+  animation:bob 2s infinite;
+}
+
+@keyframes bob {
+  50% { transform:translateY(7px); }
+}
+
+.scene-inner {
+  width:min(900px,100%);
+  position:relative;
+  z-index:1;
+}
+
+.scene h2 {
+  font-weight:400;
+  font-size:clamp(30px,7vw,60px);
+  line-height:1.7;
+  margin:15px 0;
+}
+
+.scene p {
+  color:var(--muted);
+  line-height:2.4;
+  font-weight:300;
+  font-size:clamp(14px,3.4vw,18px);
+}
+
+.divider {
+  width:75px;
+  height:1px;
+  background:var(--gold);
+  margin:30px auto;
+  box-shadow:0 0 15px var(--gold);
+}
+
+.reveal {
+  opacity:0;
+  transform:translateY(35px);
+  transition:opacity 1s ease,transform 1s ease;
+}
+
+.reveal.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+
+.memory {
+  border:1px solid #e8cc8c30;
+  background:linear-gradient(135deg,#ffffff08,#0b273640);
+  padding:30px 25px;
+  border-radius:24px;
+  backdrop-filter:blur(15px);
+  box-shadow:0 20px 70px #0003;
+}
+
+.memory .symbol {
+  font-size:46px;
+  margin-bottom:10px;
+  filter:drop-shadow(0 0 15px #e8cc8c40);
+}
+
+.memory h3 {
+  color:var(--gold);
+  font-size:22px;
+  font-weight:500;
+}
+
+.rose-stage {
+  width:180px;
+  height:180px;
+  margin:20px auto 30px;
+  position:relative;
+  display:grid;
+  place-items:center;
+  perspective:600px;
+}
+
+.rose {
+  font-size:105px;
+  filter:drop-shadow(0 0 22px #d8446b75);
+  animation:roseFloat 4s ease-in-out infinite;
+}
+
+@keyframes roseFloat {
+  0%,100% { transform:translateY(0) rotate(-6deg); }
+  50% { transform:translateY(-13px) rotate(7deg); }
+}
+
+.letter {
+  position:relative;
+  margin:25px auto;
+  width:min(550px,100%);
+  padding:32px 24px;
+  background:linear-gradient(145deg,#f5e7c7,#dfc99d);
+  color:#24303a;
+  border-radius:4px;
+  box-shadow:0 20px 80px #0008;
+  transform:rotateX(8deg);
+  line-height:2.5;
+  text-align:right;
+  display:none;
+  animation:letterIn .9s ease both;
+}
+
+.letter.open { display:block; }
+
+@keyframes letterIn {
+  from { opacity:0;transform:translateY(25px) rotateX(15deg); }
+  to { opacity:1;transform:translateY(0) rotateX(0); }
+}
+
+.letter h3 {
+  text-align:center;
+  font-size:25px;
+  font-weight:600;
+}
+
+.letter p { color:#38434b; }
+
+#final {
+  background:radial-gradient(ellipse at center,#123e4b,#040a12 70%);
+}
+
+.final-message {
+  font-size:clamp(35px,8vw,76px);
+  line-height:1.7;
+  text-shadow:0 0 45px #e8cc8c28;
+}
+
+footer {
+  text-align:center;
+  padding:28px 15px 40px;
+  background:#03070d;
+  color:#8295a4;
+  font-size:12px;
+}
+
+#soundBtn {
+  position:fixed;
+  bottom:18px;
+  left:18px;
+  z-index:10;
+  width:47px;
+  height:47px;
+  border-radius:50%;
+  border:1px solid #e8cc8c55;
+  background:#07151de8;
+  color:var(--gold);
+  cursor:pointer;
+  font-size:19px;
+  backdrop-filter:blur(12px);
+}
+
+#topBtn {
+  position:fixed;
+  bottom:18px;
+  right:18px;
+  z-index:10;
+  width:47px;
+  height:47px;
+  border-radius:50%;
+  border:1px solid #e8cc8c55;
+  background:#07151de8;
+  color:var(--gold);
+  cursor:pointer;
+}
+
+.burst {
+  position:fixed;
+  z-index:20;
+  pointer-events:none;
+  font-size:22px;
+  animation:burst 1.8s ease-out forwards;
+}
+
+@keyframes burst {
+  0% { opacity:1;transform:translate(0,0) scale(.4) rotate(0); }
+  100% { opacity:0;transform:translate(var(--x),var(--y)) scale(1.5) rotate(50deg); }
+}
+
+@media(max-width:500px) {
+  .scene { padding:75px 20px; }
+  .memory { padding:25px 18px; }
+  .actions { flex-direction:column;align-items:stretch;width:min(310px,100%);margin-inline:auto;margin-top:25px; }
+  .btn { width:100%; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
+    transition-duration:.01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="stars"></canvas>
+<div class="grain"></div>
+
+<button id="soundBtn" aria-label="روشن یا خاموش کردن موسیقی" title="موسیقی">♫</button>
+<button id="topBtn" aria-label="بازگشت به بالا" title="بازگشت به بالا">↑</button>
+
+<main>
+
+<!-- صحنه اول: ورود سینمایی -->
+<section class="scene" id="intro">
+  <div class="scene-inner">
+    <div class="eyebrow reveal">A LITTLE WORLD, JUST FOR YOU</div>
+
+    <div class="orb reveal">
+      <div class="heart">❤️</div>
+    </div>
+
+    <h1 class="hero-title reveal">
+      برای تو،<br>
+      <span class="gold">سحرِ من</span>
+    </h1>
+
+    <p class="subtitle reveal">
+      بعضی آدم‌ها وارد زندگی‌ات نمی‌شن که فقط یه خاطره بشن؛
+      میان تا معنی قشنگ‌تری به تمام خاطره‌هات بدن.
+    </p>
+
+    <div class="actions reveal">
+      <button class="btn primary" onclick="beginStory()">
+        وارد دنیای من شو ✨
+      </button>
+      <button class="btn" onclick="toggleSound()">
+        موسیقی این لحظه ♫
+      </button>
+    </div>
+  </div>
+
+  <div class="scroll-hint">آهسته بیا پایین ↓</div>
+</section>
+
+<!-- صحنه دوم: اعتراف -->
+<section class="scene" id="confession">
+  <div class="scene-inner reveal">
+    <div class="eyebrow">CHAPTER 01 — YOU</div>
+
+    <h2>
+      سحر، می‌دونی<br>
+      <span class="gold">چی تو رو خاص می‌کنه؟</span>
+    </h2>
+
+    <div class="divider"></div>
+
+    <p>
+      نه فقط لبخندت، نه فقط چشم‌هات،
+      نه حتی تمام لحظه‌های قشنگی که با هم داشتیم...
+    </p>
+
+    <p>
+      چیزی که تو رو برای من خاص می‌کنه،
+      خودِ تویی؛ با تمام احساساتت، حرف‌هات،
+      روزهای خوبت و حتی روزهایی که خسته‌ای.
+    </p>
+
+    <button class="btn" onclick="nextScene('memories')">
+      یه چیز دیگه هم هست... ↓
+    </button>
+  </div>
+</section>
+
+<!-- صحنه سوم: خاطره‌ها -->
+<section class="scene" id="memories">
+  <div class="scene-inner">
+    <div class="eyebrow reveal">CHAPTER 02 — OUR WORLD</div>
+
+    <h2 class="reveal">
+      قشنگ‌ترین بخش داستانم؟
+    </h2>
+
+    <p class="reveal">
+      اینکه یه روز به گذشته نگاه کنم و ببینم
+      چقدر لحظه‌های کوچیک، خاطره‌های بزرگی ساختن.
+    </p>
+
+    <div class="divider reveal"></div>
+
+    <div class="memory reveal">
+      <div class="symbol">🌙</div>
+      <h3>یک دنیا خاطره، یک نفر</h3>
+      <p>
+        از حرف‌های طولانی گرفته تا لحظه‌های ساده،
+        از خنده‌هایی که بی‌دلیل شروع می‌شن
+        تا سکوت‌هایی که فقط کنار آدم درست قشنگن...
+      </p>
+      <p class="gold">
+        من دلم می‌خواد هنوز هم خاطره‌های تازه بسازیم.
+      </p>
+    </div>
+
+    <div class="actions reveal">
+      <button class="btn primary" onclick="nextScene('rose')">
+        گل بعدی برای توئه 🌹
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- صحنه چهارم: گل سه‌بعدی‌نما -->
+<section class="scene" id="rose">
+  <div class="scene-inner reveal">
+    <div class="eyebrow">CHAPTER 03 — FOR YOU</div>
+
+    <div class="rose-stage">
+      <div class="rose">🌹</div>
+    </div>
+
+    <h2>
+      اگه می‌تونستم<br>
+      <span class="gold">یه چیز بهت هدیه بدم...</span>
+    </h2>
+
+    <p>
+      بهت یه آینه می‌دادم تا خودت رو
+      از چشم من ببینی؛
+      تا بفهمی چقدر می‌تونی عزیز باشی،
+      حتی روزهایی که خودت اینو یادت می‌ره.
+    </p>
+
+    <button class="btn primary" onclick="openLetter()">
+      نامه‌ای که برای توئه 💌
+    </button>
+
+    <article class="letter" id="letter">
+      <h3>برای سحر، از ته قلبم</h3>
+
+      <p>
+        سحر جانم،
+      </p>
+
+      <p>
+        شاید همیشه نتونم تمام احساساتم رو اون‌طوری که
+        باید بیان کنم، اما می‌خوام بدونی بودنت برای من
+        یه اتفاق ساده نیست.
+      </p>
+
+      <p>
+        تو برای من فقط کسی نیستی که دوستش دارم؛
+        تو بخشی از خاطره‌ها، آرزوها و فردایی هستی
+        که دوست دارم براش تلاش کنم.
+      </p>
+
+      <p>
+        می‌خوام بیشتر گوش بدم، بیشتر درکت کنم،
+        به احساست احترام بذارم و با رفتارم نشون بدم
+        که حرف‌هام واقعی‌ان.
+      </p>
+
+      <p>
+        نمی‌خوام فقط از آینده قشنگ حرف بزنم؛
+        می‌خوام برای قشنگ‌تر شدنش قدم بردارم.
+      </p>
+
+      <p>
+        دوستت دارم، سحر من. ❤️
+      </p>
+
+      <p style="text-align:left">
+        با تمام عشق<br>
+        از طرف کسی که تو براش عزیزی
+      </p>
+    </article>
+  </div>
+</section>
+
+<!-- صحنه پنجم: آرزو -->
+<section class="scene" id="future">
+  <div class="scene-inner reveal">
+    <div class="eyebrow">CHAPTER 04 — TOMORROW</div>
+
+    <h2>
+      آرزوی من برای<br>
+      <span class="gold">فرداهامون</span>
+    </h2>
+
+    <div class="divider"></div>
+
+    <p>
+      یه زندگی پر از احترام، آرامش، خنده‌های واقعی
+      و روزهایی که توش کنار هم رشد کنیم.
+    </p>
+
+    <p>
+      روزهایی که اگر سخت شدن، به‌جای جنگیدن با هم،
+      دست همدیگه رو بگیریم و برای بهتر شدن تلاش کنیم.
+    </p>
+
+    <p>
+      من نمی‌تونم قول بدم هر روز بی‌نقص باشه؛
+      اما می‌تونم تلاش کنم عشق رو فقط توی حرف‌هام
+      نگه ندارم.
+    </p>
+
+    <button class="btn primary" onclick="nextScene('final')">
+      پایان داستان؟ نه هنوز... ❤️
+    </button>
+  </div>
+</section>
+
+<!-- پایان سینمایی -->
+<section class="scene" id="final">
+  <div class="scene-inner reveal">
+    <div class="eyebrow">THE MOST IMPORTANT PART</div>
+
+    <div class="orb">
+      <div class="heart">💖</div>
+    </div>
+
+    <h2 class="final-message">
+      سحر...<br>
+      <span class="gold">تو برای من عزیزی.</span>
+    </h2>
+
+    <p>
+      این صفحه یه روز تموم می‌شه؛
+      اما قشنگیِ دوست داشتن رو باید
+      توی لحظه‌های واقعی زندگی ساخت.
+    </p>
+
+    <div class="actions">
+      <button class="btn primary" onclick="heartExplosion()">
+        دنیامو پر از عشق کن 💗
+      </button>
+
+      <button class="btn" onclick="replay()">
+        دوباره از اول ببینیم ↻
+      </button>
+    </div>
+
+    <p id="endingText" aria-live="polite"></p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  ساخته‌شده با عشق، برای سحر ❤️
+</footer>
+
+<script>
+/* ستاره‌ها و ذرات نور */
+const canvas = document.getElementById('stars');
+const ctx = canvas.getContext('2d');
+
+let W = 0, H = 0;
+let particles = [];
+let raf = 0;
+
+function resizeCanvas() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  W = window.innerWidth;
+  H = window.innerHeight;
+
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
+  canvas.style.width = W + 'px';
+  canvas.style.height = H + 'px';
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  const count = Math.min(100, Math.floor(W / 5));
+  particles = Array.from({length:count}, () => ({
+    x:Math.random()*W,
+    y:Math.random()*H,
+    r:Math.random()*1.7+.3,
+    speed:Math.random()*.28+.06,
+    phase:Math.random()*6.28
+  }));
+}
+
+function drawStars() {
+  ctx.clearRect(0,0,W,H);
+
+  for (const p of particles) {
+    p.y -= p.speed;
+
+    if (p.y < -5) {
+      p.y = H + 5;
+      p.x = Math.random()*W;
+    }
+
+    p.phase += .018;
+
+    const alpha = .25 + (Math.sin(p.phase)+1)*.3;
+
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle = `rgba(232,204,140,${alpha})`;
+    ctx.fill();
+  }
+
+  raf = requestAnimationFrame(drawStars);
+}
+
+resizeCanvas();
+drawStars();
+
+window.addEventListener('resize', resizeCanvas);
+
+/* ظاهر شدن بخش‌ها هنگام اسکرول */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, {threshold:.15});
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* پیمایش داستان */
+function nextScene(id) {
+  document.getElementById(id).scrollIntoView({
+    behavior:matchMedia('(prefers-reduced-motion: reduce)').matches
+      ? 'auto' : 'smooth'
+  });
+}
+
+function beginStory() {
+  nextScene('confession');
+}
+
+/* نامه */
+function openLetter() {
+  const letter = document.getElementById('letter');
+  letter.classList.add('open');
+  letter.scrollIntoView({behavior:'smooth',block:'center'});
+  heartExplosion(18);
+}
+
+/* انفجار قلب‌ها */
+function heartExplosion(amount=55) {
+  const emojis = ['❤️','💗','💖','✨','💕','🌹','💘'];
+
+  for (let i=0;i<amount;i++) {
+    const el = document.createElement('span');
+    el.className = 'burst';
+    el.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+
+    el.style.left = (15 + Math.random()*70) + 'vw';
+    el.style.top = (35 + Math.random()*40) + 'vh';
+    el.style.setProperty('--x', (Math.random()*400-200)+'px');
+    el.style.setProperty('--y', (-100-Math.random()*500)+'px');
+
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(),1900);
+  }
+
+  const ending = document.getElementById('endingText');
+  ending.textContent = 'سحر جان، دوستت دارم. ❤️';
+}
+
+/* موسیقی محیطی با Web Audio
+   به فایل موسیقی خارجی نیازی ندارد. */
+let audioContext = null;
+let masterGain = null;
+let musicTimer = null;
+let soundOn = false;
+let noteIndex = 0;
+
+const notes = [261.63,329.63,392.00,329.63,293.66,349.23,440.00,349.23];
+
+function playNote(freq, start, duration) {
+  if (!audioContext || !masterGain) return;
+
+  const osc = audioContext.createOscillator();
+  const gain = audioContext.createGain();
+
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(freq,start);
+
+  gain.gain.setValueAtTime(.0001,start);
+  gain.gain.exponentialRampToValueAtTime(.045,start+.12);
+  gain.gain.exponentialRampToValueAtTime(.0001,start+duration);
+
+  osc.connect(gain);
+  gain.connect(masterGain);
+
+  osc.start(start);
+  osc.stop(start+duration+.05);
+}
+
+async function toggleSound() {
+  const button = document.getElementById('soundBtn');
+
+  if (soundOn) {
+    soundOn = false;
+    clearInterval(musicTimer);
+
+    if (masterGain && audioContext) {
+      masterGain.gain.setTargetAtTime(0,audioContext.currentTime,.15);
+    }
+
+    button.textContent = '♫';
+    return;
+  }
+
+  try {
+    if (!audioContext) {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) throw new Error('Audio unavailable');
+
+      audioContext = new AudioCtx();
+      masterGain = audioContext.createGain();
+      masterGain.gain.value = .65;
+      masterGain.connect(audioContext.destination);
+    }
+
+    await audioContext.resume();
+
+    soundOn = true;
+    button.textContent = '♪';
+
+    if (musicTimer) clearInterval(musicTimer);
+
+    const play = () => {
+      if (!soundOn || !audioContext) return;
+
+      const now = audioContext.currentTime;
+      playNote(notes[noteIndex % notes.length],now,2.2);
+
+      if (noteIndex % 4 === 0) {
+        playNote(notes[(noteIndex+2) % notes.length]/2,now,3);
+      }
+
+      noteIndex++;
+    };
+
+    play();
+    musicTimer = setInterval(play,1200);
+
+  } catch (error) {
+    soundOn = false;
+    button.textContent = '♫';
+    alert('مرورگر اجازه پخش صدا نداد. یک بار دیگر دکمه را لمس کن.');
+  }
+}
+
+document.getElementById('soundBtn').addEventListener('click',toggleSound);
+
+document.getElementById('topBtn').addEventListener('click',() => {
+  window.scrollTo({
+    top:0,
+    behavior:matchMedia('(prefers-reduced-motion: reduce)').matches
+      ? 'auto' : 'smooth'
+  });
+});
+
+/* شروع دوباره */
+function replay() {
+  document.getElementById('letter').classList.remove('open');
+  document.getElementById('endingText').textContent = '';
+  document.querySelectorAll('.reveal').forEach(el => el.classList.remove('visible'));
+
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  setTimeout(() => {
+    document.querySelectorAll('#intro .reveal').forEach(el => {
+      el.classList.add('visible');
+    });
+  },500);
+}
+
+/* شروع با نمایش اولیه */
+window.addEventListener('load',() => {
+  document.querySelectorAll('#intro .reveal').forEach((el,i) => {
+    setTimeout(() => el.classList.add('visible'),250+i*250);
+  });
+});
+</script>
+
+</body>
+</html>
